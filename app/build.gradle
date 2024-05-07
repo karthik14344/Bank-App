@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.bank.izbank"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -70,3 +70,7 @@ dependencies {
 
     implementation 'com.github.ar-android:AndroidSvgLoader:1.0.2'
 }
+ repositories {
+
+         maven { url 'https://jitpack.io' }
+      }

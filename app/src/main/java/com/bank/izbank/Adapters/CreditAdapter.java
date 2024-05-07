@@ -140,7 +140,7 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.CardViewOb
 
 
 
-            //KREDİYİ DATABASE DEN  VE USERDAN SİLME
+
             deleteCreditFromDatabase(tempCredit);
             list.remove(position);
 

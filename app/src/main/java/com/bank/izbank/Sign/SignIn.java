@@ -63,14 +63,9 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
            setContentView(R.layout.activity_sign_in);//load screen
            userName=findViewById(R.id.edittext_id_number_sign_in);
            userPass=findViewById(R.id.edittext_user_password_sign_in);
-
-
-
     }
     public void signUp(View view){
         Intent signUp=new Intent(SignIn.this, SignUpActivity.class);
@@ -123,36 +118,33 @@ public class SignIn extends AppCompatActivity {
     public void getUserCredits(){
         ParseQuery<ParseObject> queryBill=ParseQuery.getQuery("Credit");
         queryBill.whereEqualTo("username",SignIn.mainUser.getId());
-        queryBill.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-                if(e!=null){
-                    e.printStackTrace();
-                }else{
-                    credits = new ArrayList<>();
-                    if(objects.size()>0){
-                        for(ParseObject object:objects){
+        queryBill.findInBackground((objects, e) -> {
+            if(e!=null){
+                e.printStackTrace();
+            }else{
+                credits = new ArrayList<>();
+                if(objects.size()>0){
+                    for(ParseObject object:objects){
 
-                            creditAmount = object.getString("amount");
-                            creditInstallment = object.getString("installment");
-                            creditInterestRate = object.getString("interestRate");
-                            creditPayAmount = object.getString("payAmount");
+                        creditAmount = object.getString("amount");
+                        creditInstallment = object.getString("installment");
+                        creditInterestRate = object.getString("interestRate");
+                        creditPayAmount = object.getString("payAmount");
 
-                            Credit tempCredit = new Credit(Integer.parseInt(creditAmount),Integer.parseInt(creditInstallment),
-                                    Integer.parseInt(creditInterestRate),Integer.parseInt(creditPayAmount));
+                        Credit tempCredit = new Credit(Integer.parseInt(creditAmount),Integer.parseInt(creditInstallment),
+                                Integer.parseInt(creditInterestRate),Integer.parseInt(creditPayAmount));
 
-                            credits.add(tempCredit);
-
-
-                        }
+                        credits.add(tempCredit);
 
 
                     }
-                    SignIn.mainUser.setCredits(credits);
+
 
                 }
+                SignIn.mainUser.setCredits(credits);
 
             }
+
         });
 
 
@@ -163,31 +155,28 @@ public class SignIn extends AppCompatActivity {
     public void getCreditCards(User user){
         ParseQuery<ParseObject> queryBankAccount=ParseQuery.getQuery("CreditCard");
         queryBankAccount.whereEqualTo("userId", user.getId());
-        queryBankAccount.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-                if(e!=null){
-                    e.printStackTrace();
-                }else{
-                    creditCards = new ArrayList<>();
-                    if(objects.size()>0){
-                        for(ParseObject object:objects){
+        queryBankAccount.findInBackground((objects, e) -> {
+            if(e!=null){
+                e.printStackTrace();
+            }else{
+                creditCards = new ArrayList<>();
+                if(objects.size()>0){
+                    for(ParseObject object:objects){
 
-                            cardNo=object.getString("creditCardNo");
-                            cardLimit=object.getString("limit");
+                        cardNo=object.getString("creditCardNo");
+                        cardLimit=object.getString("limit");
 
-                            creditCards.add(new CreditCard(cardNo,Integer.parseInt(cardLimit)));
-
-
-                        }
+                        creditCards.add(new CreditCard(cardNo,Integer.parseInt(cardLimit)));
 
 
                     }
-                    user.setCreditcards(creditCards);
+
+
                 }
-
-
+                user.setCreditcards(creditCards);
             }
+
+
         });
     }
 
@@ -206,7 +195,6 @@ public class SignIn extends AppCompatActivity {
                     bankAccounts = new ArrayList<>();
                     if(objects.size()>0){
                         for(ParseObject object:objects){
-
                             bankAccountNo=object.getString("accountNo");
                             bankCash=object.getString("cash");
                             bankAccounts.add(new BankAccount(bankAccountNo,Integer.parseInt(bankCash)));
@@ -355,14 +343,11 @@ public class SignIn extends AppCompatActivity {
                                         mainUser = new User(name,userId, phone,address,tempJob);
                                         ParseFile parseFile=(ParseFile)object.get("images");
                                        if( parseFile!=null){
-                                           parseFile.getDataInBackground(new GetDataCallback() {
-                                               @Override
-                                               public void done(byte[] data, ParseException e) {
-                                                   if(data!=null && e==null){
-                                                       Bitmap downloadedImage= BitmapFactory.decodeByteArray(data,0,data.length);
-                                                       mainUser.setPhoto(downloadedImage);
+                                           parseFile.getDataInBackground((data, e1) -> {
+                                               if(data!=null && e1 ==null){
+                                                   Bitmap downloadedImage= BitmapFactory.decodeByteArray(data,0,data.length);
+                                                   mainUser.setPhoto(downloadedImage);
 
-                                                   }
                                                }
                                            });
                                        }

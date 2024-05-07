@@ -116,7 +116,6 @@ public class CreditFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // kredi çekme alertdialog
 
                 AlertDialog.Builder creditPopup = new AlertDialog.Builder(getContext());
                 creditPopup.setTitle("Set Credit");
@@ -150,7 +149,6 @@ public class CreditFragment extends Fragment {
                            int currentInstallment = Integer.parseInt(installment.getText().toString());
 
                            if(maxAmount>=currentAmount && maxInstallment>=currentInstallment){
-                               // yeni popup
 
                                AlertDialog.Builder creditPopupSecond = new AlertDialog.Builder(getContext());
                                creditPopupSecond.setTitle("Check Credit");

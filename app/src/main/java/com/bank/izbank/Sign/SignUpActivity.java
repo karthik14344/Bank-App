@@ -71,7 +71,6 @@ public class SignUpActivity extends AppCompatActivity {
         userIdText=findViewById(R.id.edittext_id_number_sign_up);
         userPhoneText=findViewById(R.id.edittext_phone_sign_up);
         spinner = findViewById(R.id.jobSpinner);
-        imageView=findViewById(R.id.fragment5_ImageView);
 
         defineJobSpinner();
 
@@ -151,21 +150,18 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-       parseUser.signUpInBackground(new SignUpCallback() {
-            @Override
-            public void done(ParseException e) {
-                if(e != null){
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"User Created" ,Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(getApplicationContext(), MainScreenActivity.class);
-                    startActivity(intent);
+       parseUser.signUpInBackground(e -> {
+           if(e != null){
+               Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+           }
+           else{
+               Toast.makeText(getApplicationContext(),"User Created" ,Toast.LENGTH_LONG).show();
+               Intent intent=new Intent(getApplicationContext(), MainScreenActivity.class);
+               startActivity(intent);
 
-                    //intent
-                }
-            }
-        });
+               //intent
+           }
+       });
 
 
     }
@@ -180,32 +176,24 @@ public class SignUpActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
         View dialogView= inflater.inflate(R.layout.settings_address_popup, null);
         ad.setView(dialogView);
-        ad.setPositiveButton("CONTINUE", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                TextView street=dialogView.findViewById(R.id.setting_address_street);
-                TextView blockNo=dialogView.findViewById(R.id.setting_address_block);
-                TextView floor=dialogView.findViewById(R.id.setting_address_floor);
-                TextView houseNo=dialogView.findViewById(R.id.setting_address_house);
-                TextView country=dialogView.findViewById(R.id.setting_address_country);
-                TextView neighborhood=dialogView.findViewById(R.id.setting_address_neigh);
-                TextView town=dialogView.findViewById(R.id.setting_address_town);
-                TextView state=dialogView.findViewById(R.id.setting_address_state);
-                if(street.getText().toString() !=null &&neighborhood.getText().toString()!=null && blockNo.getText().toString()!=null&&floor.getText().toString()!=null &&houseNo.getText().toString()!=null&& town.getText().toString()!=null &&state.getText().toString()!=null&& country.getText().toString()!=null){
-                    newAddress= new Address(street.getText().toString(),neighborhood.getText().toString(),Integer.parseInt(blockNo.getText().toString()),Integer.parseInt(floor.getText().toString()),Integer.parseInt(houseNo.getText().toString()),town.getText().toString(),state.getText().toString(),country.getText().toString());
+        ad.setPositiveButton("CONTINUE", (dialog, which) -> {
+            TextView street=dialogView.findViewById(R.id.setting_address_street);
+            TextView blockNo=dialogView.findViewById(R.id.setting_address_block);
+            TextView floor=dialogView.findViewById(R.id.setting_address_floor);
+            TextView houseNo=dialogView.findViewById(R.id.setting_address_house);
+            TextView country=dialogView.findViewById(R.id.setting_address_country);
+            TextView neighborhood=dialogView.findViewById(R.id.setting_address_neigh);
+            TextView town=dialogView.findViewById(R.id.setting_address_town);
+            TextView state=dialogView.findViewById(R.id.setting_address_state);
+            if(street.getText().toString() !=null &&neighborhood.getText().toString()!=null && blockNo.getText().toString()!=null&&floor.getText().toString()!=null &&houseNo.getText().toString()!=null&& town.getText().toString()!=null &&state.getText().toString()!=null&& country.getText().toString()!=null){
+                newAddress= new Address(street.getText().toString(),neighborhood.getText().toString(),Integer.parseInt(blockNo.getText().toString()),Integer.parseInt(floor.getText().toString()),Integer.parseInt(houseNo.getText().toString()),town.getText().toString(),state.getText().toString(),country.getText().toString());
 
 
-                }else{
-                    Toast.makeText(getApplicationContext(),"Please Fill the all field",Toast.LENGTH_SHORT).show();
-                }
+            }else{
+                Toast.makeText(getApplicationContext(),"Please Fill the all field",Toast.LENGTH_SHORT).show();
             }
         });
-        ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(),"Canceled",Toast.LENGTH_SHORT).show();
-            }
-        });
+        ad.setNegativeButton("Cancel", (dialog, which) -> Toast.makeText(getApplicationContext(),"Canceled",Toast.LENGTH_SHORT).show());
         ad.create().show();
 
 

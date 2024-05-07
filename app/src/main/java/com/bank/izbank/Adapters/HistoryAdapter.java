@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bank.izbank.MainScreen.FinanceScreen.CryptoModel;
+//import com.bank.izbank.MainScreen.FinanceScreen.CryptoModel;
 import com.bank.izbank.R;
 import com.bank.izbank.UserInfo.History;
 

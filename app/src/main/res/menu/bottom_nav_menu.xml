@@ -4,21 +4,26 @@
 
     <item
         android:id="@+id/menu1"
-        android:icon="@drawable/icon_bank" />
+        android:icon="@drawable/icon_bank"
+        android:title="Bank Button" />
 
     <item
         android:id="@+id/menu2"
-        android:icon="@drawable/icon_pay" />
+        android:icon="@drawable/icon_pay"
+        android:title="Pay" />
 
-    <item
-        android:id="@+id/menu3"
-        android:icon="@drawable/icon_drawer_bitcoin" />
+<!--    <item-->
+<!--        android:id="@+id/menu3"-->
+<!--        android:icon="@drawable/icon_drawer_bitcoin"-->
+<!--        android:title="Crypto" />-->
 
     <item
         android:id="@+id/menu4"
-        android:icon="@drawable/icon_bill" />
+        android:icon="@drawable/icon_bill"
+        android:title="Pay Bill" />
 
     <item
         android:id="@+id/menu5"
-        android:icon="@drawable/icon_settings" />
+        android:icon="@drawable/icon_settings"
+        android:title="Profile" />
 </menu>
