@@ -93,14 +93,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                 String tempStr = "Bank Accounts:\n";
 
                 for (int i = 0; i < account.getBankAccounts().size(); i++) {
-                    tempStr+= account.getBankAccounts().get(i).getAccountno() + ": " + account.getBankAccounts().get(i).getCash() + "$";
+                    tempStr+= account.getBankAccounts().get(i).getAccountno() + ": " + account.getBankAccounts().get(i).getCash() + "₹";
                     if (account.getBankAccounts().size()-1!=i){
                         tempStr+= "\n";
                     }
                 }
                 String tempCC = "Credit Cards:\n";
                 for (int i = 0; i < account.getCreditcards().size(); i++) {
-                    tempCC+= account.getCreditcards().get(i).getCreditCardNo() + ": " + account.getCreditcards().get(i).getLimit() + "$";
+                    tempCC+= account.getCreditcards().get(i).getCreditCardNo() + ": " + account.getCreditcards().get(i).getLimit() + "₹";
                     if (account.getCreditcards().size()-1!=i){
                         tempCC+= "\n";
                     }

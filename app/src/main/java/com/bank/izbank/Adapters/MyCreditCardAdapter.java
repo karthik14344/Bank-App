@@ -68,7 +68,7 @@ public class MyCreditCardAdapter extends RecyclerView.Adapter<MyCreditCardAdapte
         text_view_total_money = context.findViewById(R.id.text_view_total_money);
         final CreditCard CreditCard = MyCreditCards.get(position);
         holder.textCreditCardNo.setText(CreditCard.getCreditCardNo());
-        holder.textCreditCardLimit.setText("$ "+String.valueOf(CreditCard.getLimit()));
+        holder.textCreditCardLimit.setText("₹ "+String.valueOf(CreditCard.getLimit()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +95,7 @@ public class MyCreditCardAdapter extends RecyclerView.Adapter<MyCreditCardAdapte
                     ad.setView(editText);
                     String[] items = new String[MyBankAccounts.size()];
                     for (int i =0; i<MyBankAccounts.size();i++){
-                        String data= MyBankAccounts.get(i).getAccountno() + "  $" + Integer.toString(MyBankAccounts.get(i).getCash());
+                        String data= MyBankAccounts.get(i).getAccountno() + "  ₹" + Integer.toString(MyBankAccounts.get(i).getCash());
                         items[i] = data;
                     }
                     final int[] checkedItem = {0};

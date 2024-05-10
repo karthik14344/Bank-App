@@ -63,7 +63,7 @@ public class BillAdapter extends  RecyclerView.Adapter<BillAdapter.CardViewObjec
         Bill bill = list.get(position);
 
         holder.textViewBillType.setText(bill.getType());
-        holder.textViewBillAmount.setText(bill.getAmount()+" TL");
+        holder.textViewBillAmount.setText(bill.getAmount()+" Rs.");
         String dateStr = bill.getDate().getDay() +"."+ bill.getDate().getMonth() +
                 "."+ bill.getDate().getYear();
         holder.textViewBillDate.setText(dateStr);

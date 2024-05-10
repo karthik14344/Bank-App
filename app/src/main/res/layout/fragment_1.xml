@@ -60,11 +60,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageView
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/icon_dolar"></ImageView>-->
+
+            <TextView
+                android:id="@+id/text_view_rs"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_dolar"
-                android:layout_gravity="center"></ImageView>
+                android:text="₹ "
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"></TextView>
 
             <TextView
                 android:id="@+id/text_view_total_money"

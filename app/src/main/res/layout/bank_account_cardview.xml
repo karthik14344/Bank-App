@@ -39,7 +39,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
 
-                android:text="$1023,25"
+                android:text="₹1023,25"
                 android:textColor="@color/black"
                 android:textSize="20dp"></TextView>
 

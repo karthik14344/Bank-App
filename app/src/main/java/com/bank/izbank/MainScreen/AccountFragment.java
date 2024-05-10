@@ -344,7 +344,7 @@ public class AccountFragment extends Fragment {
                 ad.setView(editText);
                 String[] items = new String[myBankAccount.size()];
                 for (int i =0; i<myBankAccount.size();i++){
-                    String data= myBankAccount.get(i).getAccountno() + "  $" + Integer.toString(myBankAccount.get(i).getCash());
+                    String data= myBankAccount.get(i).getAccountno() + "  ₹" + Integer.toString(myBankAccount.get(i).getCash());
                     items[i] = data;
                 }
                 final int[] checkedItem = {0};
@@ -394,7 +394,7 @@ public class AccountFragment extends Fragment {
 
                             String[] items = new String[myBankAccount.size()];
                             for (int i =0; i<myBankAccount.size();i++){
-                                String data= myBankAccount.get(i).getAccountno() + "  $" + Integer.toString(myBankAccount.get(i).getCash());
+                                String data= myBankAccount.get(i).getAccountno() + "  ₹" + Integer.toString(myBankAccount.get(i).getCash());
                                 items[i] = data;
                             }
                             final int[] from = {0};
@@ -414,7 +414,7 @@ public class AccountFragment extends Fragment {
 
                                     String[] items = new String[myBankAccount.size()];
                                     for (int i =0; i<myBankAccount.size();i++){
-                                        String data= myBankAccount.get(i).getAccountno() + "  $" + Integer.toString(myBankAccount.get(i).getCash());
+                                        String data= myBankAccount.get(i).getAccountno() + "  ₹" + Integer.toString(myBankAccount.get(i).getCash());
                                         items[i] = data;
                                     }
                                     final int[] to = {0};
@@ -526,7 +526,7 @@ public class AccountFragment extends Fragment {
 
                                     String[] items = new String[myBankAccount.size()];
                                     for (int i =0; i<myBankAccount.size();i++){
-                                        String data= myBankAccount.get(i).getAccountno() + "  $" + Integer.toString(myBankAccount.get(i).getCash());
+                                        String data= myBankAccount.get(i).getAccountno() + "  ₹" + Integer.toString(myBankAccount.get(i).getCash());
                                         items[i] = data;
                                     }
                                     final int[] from = {0};
